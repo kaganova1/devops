@@ -5,62 +5,7 @@
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
-		{
-			"name": "Create user",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "ac28fbfe-ff7f-4832-8337-105fd4d43e4e",
-						"exec": [
-							"pm.test(\"Status code is 500\", function () {",
-							"    pm.response.to.have.status(500);",
-							"",
-							"",
-							"pm.test(\"Body matches string\", function () {",
-							"    pm.expect(pm.response.text()).to.include(\"error\");",
-							"});",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n  \"Login\": \"testing_201\",\r\n  \"NativeName\": \"Ivan Ivanov\",\r\n  \"Password\": \"123456\",\r\n  \"ConfirmPassword\": \"123456\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://104.40.150.146/api/user?nextPath=%2F",
-					"protocol": "http",
-					"host": [
-						"104",
-						"40",
-						"150",
-						"146"
-					],
-					"path": [
-						"api",
-						"user"
-					],
-					"query": [
-						{
-							"key": "nextPath",
-							"value": "%2F"
-						}
-					]
-				}
-			},
-			"response": []
-		},
+		
 		{
 			"name": "Get user info",
 			"event": [
