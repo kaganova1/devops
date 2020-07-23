@@ -1,0 +1,371 @@
+{
+	"id": "4a4e6a26-67f3-403a-9321-6d7603355888",
+	"name": "Practice",
+	"description": "",
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "AQAAANCMnd8BFdERjHoAwE_Cl-sBAAAAAZ-KQx9Y8kGFX7ItjR4uNgAAAAACAAAAAAAQZgAAAAEAACAAAABYVwCKGkDvSg6i9yM6vlmzXQJOFZYBWSKcdAwfEPPVcwAAAAAOgAAAAAIAACAAAADUdE-1YPtPi-bcsTwI_XHp6Klbt3dea0J0ryqv0uGnGxABAADpEcPfEIf9s9i7VDrxJ6Z4iPa_3WSysxFtumgZCjWQJiHkp6wOWYdFsD-zHM5XmwC6LQ_sNh6J87Q_HKzzqtkvpubqIvZlBNuN0CyCxliC9v2yUJkUTWyScymcuJN8magw8LTGLYxdEknFCfMYaACPPxuXVqZwk8o1oRrx7eRwZNy6yxuNEQdim22b82q97jitOcc9ySez7KbyFvmprldPYA9WvekIFNSaoVWg1Y6Y3NDMKgZFzJEU1ZqW1Al9CIQyH48SSilJ2Fcmj0TJprjxu2MvOhlzXTNRvf_DgqjugZiqrXwq2ZGonX8rgJuIHbKje7KH6MI7f_OTAbtIwis1VaJc62bG-ivpcZc4DmytD0AAAAADsm5elNBGCrBJTXjXfwGrT5uMcAg_W4siA6EB4L5O_uBNpXezAg6JeUpq9IeBh9gMstx0z48mgUoLMkbiES6O"
+			}
+		]
+	},
+	"events": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "a1cb731c-5093-4d47-ba74-c785adc3e248",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "52c9e2cc-b956-4258-9b73-d315ac899280",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variables": [],
+	"order": [
+		"34c26a36-1801-4e96-8196-4186a2dd37cb",
+		"e46a18fb-0c90-4eee-9e95-940686e87974",
+		"200a3a09-8174-4d4c-aa4b-76c3d2de34b3",
+		"06f7346a-2ad1-4eb9-8e50-30a868a51c27",
+		"ba499ea1-702e-4ec4-9bbb-275ec491f2ba",
+		"af432ee5-758c-46da-8ad1-dc88392d8558",
+		"06a08c25-40a3-4648-b098-1a1b2219666d",
+		"756bbf71-ae77-458c-b075-fe846562d9c0"
+	],
+	"folders_order": [],
+	"protocolProfileBehavior": {},
+	"folders": [],
+	"requests": [
+		{
+			"id": "06a08c25-40a3-4648-b098-1a1b2219666d",
+			"name": "Get all games",
+			"url": "http://104.40.150.146/api/games",
+			"description": "7) Получить список игр(games)",
+			"data": null,
+			"dataOptions": null,
+			"dataMode": null,
+			"headerData": [],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "eb6dff39-d2c1-403b-8853-818c1115f761",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"[]\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"folder": null,
+			"headers": "",
+			"pathVariables": {}
+		},
+		{
+			"id": "06f7346a-2ad1-4eb9-8e50-30a868a51c27",
+			"name": "Get all maps",
+			"url": "http://104.40.150.146/api/map",
+			"description": "5) Получить список карт(map)    ",
+			"data": null,
+			"dataOptions": null,
+			"dataMode": null,
+			"headerData": [],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "62144aa3-70ef-4dd3-9fc7-3997359c737f",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"id\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"folder": null,
+			"headers": "",
+			"pathVariables": {}
+		},
+		{
+			"id": "200a3a09-8174-4d4c-aa4b-76c3d2de34b3",
+			"name": "Get information about current user",
+			"url": "http://104.40.150.146/api/me",
+			"description": "2) Посмотреть информацию о себе",
+			"data": [],
+			"dataOptions": {
+				"raw": {
+					"language": "json"
+				}
+			},
+			"dataMode": "raw",
+			"headerData": [],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "483214b3-2b1d-46c5-bd67-1c0bf15b67e5",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"id\",\"login\",\"nativeName\", \"role\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"folder": null,
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"rawModeData": "// {\r\n//   \"Id\": \"5db9e4958a7a441bb68c8a349a333f00\",\r\n//   \"Login\": \"TestUser565\",\r\n//   \"NativeName\": \"TestUs12\",\r\n//   \"Role\": 1\r\n// }\r\n",
+			"headers": "",
+			"pathVariables": {}
+		},
+		{
+			"id": "34c26a36-1801-4e96-8196-4186a2dd37cb",
+			"name": "get token",
+			"url": "http://104.40.150.146/token",
+			"description": "",
+			"data": [],
+			"dataOptions": {
+				"raw": {
+					"language": "text"
+				}
+			},
+			"dataMode": "raw",
+			"headerData": [],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "aa05f9bd-467c-4733-b0a6-533c94be8c3e",
+						"exec": [
+							"var jsonResp = pm.response.json();\r",
+							"postman.setGlobalVariable(\"token\", jsonResp[\"access_token\"]);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"folder": null,
+			"rawModeData": "grant_type=password&username=TestUser565&password=54321",
+			"headers": "",
+			"pathVariables": {}
+		},
+		{
+			"id": "756bbf71-ae77-458c-b075-fe846562d9c0",
+			"name": "Get all games by user id",
+			"url": "http://104.40.150.146/api/game?start=1&count=5",
+			"description": "9) Получить информацию о играх пользователя(game)",
+			"data": null,
+			"dataOptions": null,
+			"dataMode": null,
+			"headerData": [],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "start",
+					"value": "1",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "count",
+					"value": "5",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "75df9a77-77a0-4b26-901c-352d99315d01",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"start\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"folder": null,
+			"headers": "",
+			"pathVariables": {}
+		},
+		{
+			"id": "af432ee5-758c-46da-8ad1-dc88392d8558",
+			"name": "Get all maps(maps)",
+			"url": "http://104.40.150.146/api/maps",
+			"description": "11) Получить список карт(maps)",
+			"data": null,
+			"dataOptions": null,
+			"dataMode": null,
+			"headerData": [],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4e9b8959-c4de-4ccb-aadd-d01dae67680b",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"id\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"folder": null,
+			"headers": "",
+			"pathVariables": {}
+		},
+		{
+			"id": "ba499ea1-702e-4ec4-9bbb-275ec491f2ba",
+			"name": "Create game",
+			"url": "http://104.40.150.146/api/game",
+			"description": "6) Создать игру",
+			"data": [],
+			"dataOptions": {
+				"raw": {
+					"language": "json"
+				}
+			},
+			"dataMode": "raw",
+			"headerData": [],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3fa7f275-5b9f-44ab-800d-2463b65f0ccb",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"id\");\r",
+							"});\r",
+							"\r",
+							"var jsonResp = pm.response.json();\r",
+							"postman.setGlobalVariable(\"gameID\", jsonResp[\"id\"]);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"folder": null,
+			"rawModeData": "{\r\n  \"Name\": \"ПятнашкаCopy\",\r\n  \"MapId\": \"07203e54244e4b8a859c4e58830bb70a\",\r\n  \"SwitchTimeout\": 5,\r\n  \"StartupTeamLives\": 5,\r\n  \"PoliceSpeed\": 1,\r\n  \"ThiefSpeed\": 2\r\n}",
+			"headers": "",
+			"pathVariables": {}
+		},
+		{
+			"id": "e46a18fb-0c90-4eee-9e95-940686e87974",
+			"name": "Create user",
+			"url": "104.40.150.146/api/user",
+			"description": "1) Зарегистрировать пользователя",
+			"data": [],
+			"dataOptions": {
+				"raw": {
+					"language": "json"
+				}
+			},
+			"dataMode": "raw",
+			"headerData": null,
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a0b54eed-e006-4ec5-96b1-b1ffbf87c8cb",
+						"exec": [
+							"pm.test(\"Status code is 500\", function () {//201-успешно добавлено, 500 - ошибка сервера\r",
+							"    pm.response.to.have.status(500);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.message).to.eql(\"An error has occurred.\");\r",
+							"});\r",
+							"// pm.test(\"Body matches string\", function () {\r",
+							"//     pm.expect(pm.response.text()).to.include(\"id\",\"login\",\"nativeName\", \"role\");\r",
+							"// });"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"folder": null,
+			"rawModeData": "{\r\n    \"Login\": \"TestUser_01\",\r\n    \"NativeName\": \"TestUser_01\",\r\n    \"Password\": \"12345\",\r\n    \"ConfirmPassword\": \"12345\"\r\n}",
+			"pathVariables": {}
+		}
+	]
+}
